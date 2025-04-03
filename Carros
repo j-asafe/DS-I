@@ -1,0 +1,110 @@
+using System;
+
+class HelloWorld {
+    static void Main() {
+        // Definindo arrays de carros e suas descrições
+        string[] carros = {"Civic", "Corola", "Omega", "Punto", "Gol", "Fit", "Creta", "Santa fé", "Capitiva"};
+        string[] descricao = {"R$ 70000.00 - 1000km", "R$ 75000.00 - 1000km", "R$ 50000.00 - 1000km", "R$ 25000.00 - 1000km", "R$ 20000.00 - 1000km", "R$ 45000.00 - 1000km", "R$ 100000.00 - 1000km", "R$ 80000.00 - 1000km", "R$ 60000.00 - 1000km"};
+        int modelo;
+        string resposta;
+
+        // Laço do tipo do-while para continuar executando até que o usuário decida parar
+        do {
+            // Exibindo opções de categorias de carros
+            Console.WriteLine("Selecione a categoria do carro: \n 1 - Sedan \n 2 - Hatch \n 3 - SUV");
+            int categoria = int.Parse(Console.ReadLine());
+
+            // Verificando a categoria escolhida
+            switch (categoria) {
+                case 1:
+                    // Exibindo opções de modelos de carros Sedan
+                    Console.WriteLine("1 - " + carros[0]);
+                    Console.WriteLine("2 - " + carros[1]);
+                    Console.WriteLine("3 - " + carros[2]);
+                    modelo = int.Parse(Console.ReadLine());
+                    
+                    // Verificando o modelo escolhido dentro da categoria Sedan
+                    switch (modelo) {
+                        case 1:
+                            Console.WriteLine(descricao[0]);
+                            break;
+                        case 2:
+                            Console.WriteLine(descricao[1]);
+                            break;
+                        case 3:
+                            Console.WriteLine(descricao[2]);
+                            break;
+                        default:
+                            // Caso a opção de modelo seja inválida
+                            Console.WriteLine("Opção inválida.");
+                            break;
+                    }
+                    break;
+
+                case 2:
+                    // Exibindo opções de modelos de carros Hatch
+                    Console.WriteLine("1 - " + carros[3]);
+                    Console.WriteLine("2 - " + carros[4]);
+                    Console.WriteLine("3 - " + carros[5]);
+                    modelo = int.Parse(Console.ReadLine());
+                    
+                    // Verificando o modelo escolhido dentro da categoria Hatch
+                    switch (modelo) {
+                        case 1:
+                            Console.WriteLine(descricao[3]);
+                            break;
+                        case 2:
+                            Console.WriteLine(descricao[4]);
+                            break;
+                        case 3:
+                            Console.WriteLine(descricao[5]);
+                            break;
+                        default:
+                            // Caso a opção de modelo seja inválida
+                            Console.WriteLine("Opção inválida.");
+                            break;
+                    }
+                    break;
+
+                case 3:
+                    // Exibindo opções de modelos de carros SUV
+                    Console.WriteLine("1 - " + carros[6]);
+                    Console.WriteLine("2 - " + carros[7]);
+                    Console.WriteLine("3 - " + carros[8]);
+                    modelo = int.Parse(Console.ReadLine());
+                    
+                    // Verificando o modelo escolhido dentro da categoria SUV
+                    switch (modelo) {
+                        case 1:
+                            Console.WriteLine(descricao[6]);
+                            break;
+                        case 2:
+                            Console.WriteLine(descricao[7]);
+                            break;
+                        case 3:
+                            Console.WriteLine(descricao[8]);
+                            break;
+                        default:
+                            // Caso a opção de modelo seja inválida
+                            Console.WriteLine("Opção inválida.");
+                            break;
+                    }
+                    break;
+
+                // Caso o usuário escolha uma categoria inválida
+                default:
+                    Console.WriteLine("Digite uma das opções apresentadas.");
+                    break;
+            }
+
+            // Pergunta se o usuário deseja continuar
+            Console.WriteLine("Você deseja continuar? (sim ou não)");
+            resposta = Console.ReadLine().ToLower();
+
+        // Repete o processo enquanto a resposta for "sim"
+        } while (resposta == "sim");
+
+        // Exibe mensagem de fim do programa
+        Console.WriteLine("Programa encerrado.");
+    }
+}
