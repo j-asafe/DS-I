@@ -1,5 +1,5 @@
 using System;
-class HelloWorld {
+class Questões {
  
 static double CalcularSoma(double num1, double num2, double num3)
     {
@@ -10,44 +10,83 @@ static string Saudacao(string nome)
     {
         return "Olá "+nome+", Seja bem vindo!";
     }
-    
+
+static string MultiploDeCinco(int numero)
+    {
+        if (numero % 5 == 0)
+        {
+            return "sim";
+        }
+        else
+        {
+            return "não";   
+        }
+
+    }
+
     static void Main() {
         string resposta;
         
-        /*do{
-            Console.WriteLine("Exercócio 1 \n");
-    
-            Console.Write("Digite o primeiro número: ");
-            double num1 = double.Parse (Console.ReadLine());
+        Console.WriteLine("====Escolha um Exercício==== \n");
+        Console.WriteLine("1 - Exercício Soma \n");
+        Console.WriteLine("2 - Exercício Saudação \n");
+        Console.WriteLine("3 - Exercício Multiplo De Cinco \n");
+        int escolha = int.Parse(Console.ReadLine());
             
-            Console.Write("Digite o segundo número: ");
-            double num2 = double.Parse (Console.ReadLine());
-            
-            Console.Write("Digite o terceiro número: ");
-            double num3 = double.Parse (Console.ReadLine());
+        switch(escolha){
+            case 1:
+                do{
+                    Console.WriteLine("Exercício 1 \n");
+                
+                    Console.Write("Digite o primeiro número: ");
+                    double num1 = double.Parse (Console.ReadLine());
+                        
+                    Console.Write("Digite o segundo número: ");
+                    double num2 = double.Parse (Console.ReadLine());
+                        
+                    Console.Write("Digite o terceiro número: ");
+                    double num3 = double.Parse (Console.ReadLine());
+                    
+                    double soma = CalcularSoma(num1, num2, num3);
+                    Console.WriteLine("A soma dos três números é: " + soma);
+                        
+                    Console.WriteLine("Deseja continuar? (digite s para continuar ou qualquer tecla para sair)");
+                    resposta = Console.ReadLine().ToLower();
+                    
+                }while (resposta == "s");
+                break;
         
-            double soma = CalcularSoma(num1, num2, num3);
-            Console.WriteLine("A soma dos três números é: " + soma);
-            
-            Console.WriteLine("Deseja continuar (digite s para continuar ou qualquer tecla para sair); qualquer tecla para parar");
-            resposta = Console.ReadLine().ToLower();
-            
-        }while (resposta == "s");*/
-        
-        do{
-            Console.WriteLine("Exercócio 2 \n");
-            
-            Console.WriteLine("Digite o seu nome: ");
-            string nome = (Console.ReadLine());
-            
-            string mensagem = Saudacao(nome);
-            Console.WriteLine(mensagem);
-            
-            Console.WriteLine("Deseja continuar (digite s para continuar ou qualquer tecla para sair); qualquer tecla para parar");
-            resposta = Console.ReadLine().ToLower();
-            
-        }while (resposta == "s");    
-            
-            
-  }
+            case 2:
+                do{
+                    Console.WriteLine("Exercício 2 \n");
+                        
+                    Console.WriteLine("Digite o seu nome: ");
+                    string nome = (Console.ReadLine());
+                        
+                    string mensagem = Saudacao(nome);
+                    Console.WriteLine(mensagem);
+                        
+                    Console.WriteLine("Deseja continuar? (digite s para continuar ou qualquer tecla para sair)");
+                    resposta = Console.ReadLine().ToLower();
+                        
+                }while (resposta == "s"); 
+                break;
+                
+            case 3:
+                do{
+                    Console.WriteLine("Exercício 3 \n");
+                    
+                    Console.WriteLine("Digite um número inteiro: ");
+                    int numero = int.Parse(Console.ReadLine());
+                    
+                    string mensagem = MultiploDeCinco(numero);
+                    Console.WriteLine(mensagem);
+                    
+                    Console.WriteLine("Deseja continuar? (digite s para continuar ou qualquer tecla para sair)");
+                    resposta = Console.ReadLine().ToLower();
+                    
+                }while (resposta == "s");
+                break;
+        }   
+    }
 }
