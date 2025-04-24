@@ -1,0 +1,81 @@
+using System;
+using System.Collections.Generic;
+
+
+interface IAnimal
+{
+    string EmitirSom();
+}
+
+
+abstract class Animal : IAnimal
+{
+    private string nome;
+    private string tipo;
+
+    public string Nome
+    {
+        get { return nome; }
+        set { nome = value; }
+    }
+
+    public string Tipo
+    {
+        get { return tipo; }
+        set { tipo = value; }
+    }
+
+    public Animal(string nome, string tipo)
+    {
+        this.nome = nome;
+        this.tipo = tipo;
+    }
+
+    public abstract string EmitirSom();
+}
+
+
+class Cachorro : Animal
+{
+    public Cachorro(string nome) : base(nome, "cachorro") { }
+    public override string EmitirSom() => "Au Au!";
+}
+
+class Gato : Animal
+{
+    public Gato(string nome) : base(nome, "gato") { }
+    public override string EmitirSom() => "Miau!";
+}
+
+class Leao : Animal
+{
+    public Leao(string nome) : base(nome, "leao") { }
+    public override string EmitirSom() => "Rooar!";
+}
+
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Dictionary<string, Animal> animais = new Dictionary<string, Animal>()
+        {
+            { "cachorro", new Cachorro("Cachorro") },
+            { "gato", new Gato("Gato") },
+            { "leao", new Leao("Leão") }
+        };
+
+        Console.WriteLine("Digite o tipo de animal (ex: cachorro, gato, leao): ");
+        string tipoDigitado = Console.ReadLine()?.ToLower();
+
+        if (tipoDigitado != null && animais.ContainsKey(tipoDigitado))
+        {
+            Animal animal = animais[tipoDigitado];
+            Console.WriteLine($"O som do {animal.Tipo} é: {animal.EmitirSom()}");
+        }
+        else
+        {
+            Console.WriteLine("Animal não cadastrado.");
+        }
+    }
+}
